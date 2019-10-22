@@ -11,16 +11,14 @@ public class AllWordsFromQuery implements MatchData {
     }
 
     @Override
-    public void search(Map<String, List<Integer>> invertedIndex) {
+    public List<String> search(Map<String, List<Integer>> invertedIndex, List<String> people) {
         searchTerm = searchTerm.toLowerCase();
-        List<String> res = new ArrayList<>();
+        List<String> result = new ArrayList<>();
         if (invertedIndex.containsKey(searchTerm)) {
             for (Integer line : invertedIndex.get(searchTerm)) {
-                System.out.println(people.get(line));
+                result.add(people.get(line));
             }
-        } else {
-            System.out.println("Information not found.");
         }
-        System.out.println();
+        return result;
     }
 }

@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2eed6963-5ab5-45e1-842a-5aa62906dfb5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/AllWordsFromQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MatchData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SearchAlgorithm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UserInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AllWordsFromQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AllWordsFromQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MatchData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MatchData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SearchAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SearchAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInterface.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

@@ -4,22 +4,55 @@ import java.util.*;
 
 public class UserInterface {
     Scanner scanner = new Scanner(System.in);
-    SearchAlgorithm search = new SearchAlgorithm();
+    private List<String> people = new ArrayList<>();
+    //    maps words to lines that contains them
+    private Map<String, List<Integer>> invertedIndex = new HashMap<>();
+
 
     public void addPeopleAndIndexInfo(String line) throws FileNotFoundException {
         File file = new File("/Users/tundelaura/Desktop/java/searchEngine/" + line);
         Scanner scan = new Scanner(file);
-        search.addInvertedIndex(scan);
+        int lineNumber = 0;
+        while(scan.hasNextLine()) {
+            String l = scan.nextLine();
+            people.add(l);
+            String[] wordsPerLine = l.split("\\s+");
+            for (int i = 0; i < wordsPerLine.length; i++) {
+                wordsPerLine[i] = wordsPerLine[i].toLowerCase();
+                if(!invertedIndex.containsKey(wordsPerLine[i])){
+                    invertedIndex.put(wordsPerLine[i], new ArrayList<>());
+                    invertedIndex.get(wordsPerLine[i]).add(lineNumber);
+                } else {
+                    invertedIndex.get(wordsPerLine[i]).add(lineNumber);
+                }
+            }
+            lineNumber++;
+        }
     }
 
-    private static void menu() {
-        System.out.println("=== Menu ===\n" +
-                "1. Search information.\n" +
-                "2. Print all data.\n" +
-                "0. Exit.");
+    private static void printSearchResult(List<String> result){
+        if(result != null) {
+            System.out.println("Search results:");
+            for(String s: result) {
+                System.out.println(s);
+            }
+        } else {
+            System.out.println("Information not found.");
+        }
     }
 
-    public void readInput(){
+    public static MatchData createData(String matchingStrategy, String query) {
+        switch (matchingStrategy) {
+            case "ALL":
+                return new AllWordsFromQuery(query);
+//            case "ANY":
+//                break;
+            default:
+                throw new IllegalArgumentException("Unknown algorithm type " + matchingStrategy);
+        }
+    }
+
+    public void readInput() {
         boolean exit = false;
         while(!exit) {
             menu();
@@ -30,9 +63,13 @@ public class UserInterface {
                     exit = true;
                     break;
                 case 1:
-                    System.out.println("Enter a name or email to search all suitable people.");
-                    String search = scanner.nextLine();
-                    searchPeople(search);
+                    System.out.println("Select a matching strategy: ALL, ANY, NONE:");
+                    String matchingStrategy = scanner.nextLine();
+                    System.out.println("Enter a name or email to search all suitable people:");
+                    String query = scanner.nextLine();
+                    MatchData result = createData(matchingStrategy, query);
+                    List<String> found = result.search(invertedIndex, people);
+                    printSearchResult(found);
                     break;
                 case 2:
                     printPeople();
@@ -44,27 +81,19 @@ public class UserInterface {
         }
     }
 
-    private void printPeople() {
-        System.out.println("=== List of people ===");
-        if(!search.getPeople().isEmpty()){
-            for(String s : search.getPeople()) {
-                System.out.println(s);
-            }
-        }
-        System.out.println();
+    private static void menu() {
+        System.out.println("=== Menu ===\n" +
+                "1. Search information.\n" +
+                "2. Print all data.\n" +
+                "0. Exit.");
     }
 
-
-    //    optimize with inverted index
-    private void searchPeople(String s) {
-        s = s.toLowerCase();
-        if(invertedIndex.containsKey(s)) {
-            System.out.println("Search result:");
-            for(Integer line : invertedIndex.get(s)) {
-                System.out.println(search.getPeople().get(line));
+    private void printPeople() {
+        System.out.println("=== List of people ===");
+        if(!people.isEmpty()){
+            for(String s : people) {
+                System.out.println(s);
             }
-        } else {
-            System.out.println("Information not found.");
         }
         System.out.println();
     }
