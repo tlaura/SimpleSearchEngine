@@ -16,8 +16,10 @@ public class NoWordsFromQuery implements MatchData {
         String[] searchTermArray = searchTerm.split("\\s+");
         Set<String> result = new HashSet<>(people);
         for(String s: searchTermArray) {
-            for(Integer i: invertedIndex.get(s)) {
-                result.remove(people.get(i));
+            if(invertedIndex.containsKey(s)){
+                for(Integer i: invertedIndex.get(s)) {
+                    result.remove(people.get(i));
+                }
             }
         }
         return result;

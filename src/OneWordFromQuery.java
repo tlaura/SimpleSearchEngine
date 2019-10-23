@@ -16,8 +16,10 @@ public class OneWordFromQuery implements MatchData {
         String[] searchTermArray = searchTerm.split("\\s+");
         Set<String> result = new HashSet<>();
         for(String s: searchTermArray) {
-            for (Integer line : invertedIndex.get(s)) {
-                result.add(people.get(line));
+            if(invertedIndex.containsKey(s)){
+                for (Integer line : invertedIndex.get(s)) {
+                    result.add(people.get(line));
+                }
             }
         }
         return result;

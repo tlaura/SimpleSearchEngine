@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2eed6963-5ab5-45e1-842a-5aa62906dfb5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/OneWordFromQuery.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AllWordsFromQuery.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/AllWordsFromQuery.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AllWordsFromQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AllWordsFromQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/searchEngine/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/searchEngine/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MatchData.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/MatchData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MatchData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MatchData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SearchAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SearchAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NoWordsFromQuery.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/NoWordsFromQuery.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OneWordFromQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OneWordFromQuery.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +78,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
