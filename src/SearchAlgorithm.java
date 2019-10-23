@@ -12,5 +12,3 @@ public class SearchAlgorithm {
     }
 }
 
-// NONE - the program should print lines that do not contain words from the query at all.
-

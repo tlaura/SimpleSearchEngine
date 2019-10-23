@@ -4,9 +4,9 @@ import java.util.*;
 
 public class UserInterface {
     Scanner scanner = new Scanner(System.in);
-    public List<String> people = new ArrayList<>();
+    private List<String> people = new ArrayList<>();
     //    maps words to lines that contains them
-    public Map<String, List<Integer>> invertedIndex = new HashMap<>();
+    private Map<String, List<Integer>> invertedIndex = new HashMap<>();
 
 
     public void addPeopleAndIndexInfo(String line) throws FileNotFoundException {
@@ -47,6 +47,8 @@ public class UserInterface {
                 return new AllWordsFromQuery(query);
             case "ANY":
                 return new OneWordFromQuery(query);
+            case "NONE":
+                return new NoWordsFromQuery(query);
             default:
                 throw new IllegalArgumentException("Unknown algorithm type " + matchingStrategy);
         }
@@ -70,8 +72,8 @@ public class UserInterface {
 //                    strategy pattern:
                     MatchData alg = createData(matchingStrategy, query);
                     SearchAlgorithm searchAlgorithm = new SearchAlgorithm(alg);
-
                     Set<String> result = searchAlgorithm.search(invertedIndex, people);
+
                     printSearchResult(result);
                     break;
                 case 2:
