@@ -67,9 +67,12 @@ public class UserInterface {
                     String matchingStrategy = scanner.nextLine();
                     System.out.println("Enter a name or email to search all suitable people:");
                     String query = scanner.nextLine().toLowerCase();
-                    MatchData result = createData(matchingStrategy, query);
-                    Set<String> found = result.search(invertedIndex, people);
-                    printSearchResult(found);
+//                    strategy pattern:
+                    MatchData alg = createData(matchingStrategy, query);
+                    SearchAlgorithm searchAlgorithm = new SearchAlgorithm(alg);
+
+                    Set<String> result = searchAlgorithm.search(invertedIndex, people);
+                    printSearchResult(result);
                     break;
                 case 2:
                     printPeople();

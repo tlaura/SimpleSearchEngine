@@ -12,7 +12,5 @@ public class SearchAlgorithm {
     }
 }
 
-// ANY - the program should print lines containing at least one word from the query.
-
 // NONE - the program should print lines that do not contain words from the query at all.
 

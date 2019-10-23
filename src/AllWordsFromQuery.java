@@ -10,7 +10,6 @@ public class AllWordsFromQuery implements MatchData {
 
     @Override
     public Set<String> search(Map<String, List<Integer>> invertedIndex, List<String> people) {
-        searchTerm = searchTerm.toLowerCase();
         Set<String> result = new HashSet<>();
         String[] searchTermArray = searchTerm.split("\\s+");
         for(Integer line : invertedIndex.get(searchTermArray[0])) {
