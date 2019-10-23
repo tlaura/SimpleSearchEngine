@@ -20,10 +20,6 @@ public class NoWordsFromQuery implements MatchData {
                 result.remove(people.get(i));
             }
         }
-
-        for(String e: result) {
-            System.out.println(e);
-        }
         return result;
     }
 }
