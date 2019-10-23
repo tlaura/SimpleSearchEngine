@@ -7,7 +7,7 @@ public class SearchAlgorithm {
         this.algorithm = algorithm;
     }
 
-    public List<String> search(Map<String, List<Integer>> invertedIndex, List<String> people) {
+    public Set<String> search(Map<String, List<Integer>> invertedIndex, List<String> people) {
         return algorithm.search(invertedIndex, people);
     }
 }

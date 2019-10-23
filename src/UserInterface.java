@@ -4,9 +4,9 @@ import java.util.*;
 
 public class UserInterface {
     Scanner scanner = new Scanner(System.in);
-    private List<String> people = new ArrayList<>();
+    public List<String> people = new ArrayList<>();
     //    maps words to lines that contains them
-    private Map<String, List<Integer>> invertedIndex = new HashMap<>();
+    public Map<String, List<Integer>> invertedIndex = new HashMap<>();
 
 
     public void addPeopleAndIndexInfo(String line) throws FileNotFoundException {
@@ -30,7 +30,7 @@ public class UserInterface {
         }
     }
 
-    private static void printSearchResult(List<String> result){
+    private static void printSearchResult(Set<String> result){
         if(result != null) {
             System.out.println("Search results:");
             for(String s: result) {
@@ -45,8 +45,8 @@ public class UserInterface {
         switch (matchingStrategy) {
             case "ALL":
                 return new AllWordsFromQuery(query);
-//            case "ANY":
-//                break;
+            case "ANY":
+                return new OneWordFromQuery(query);
             default:
                 throw new IllegalArgumentException("Unknown algorithm type " + matchingStrategy);
         }
@@ -66,9 +66,9 @@ public class UserInterface {
                     System.out.println("Select a matching strategy: ALL, ANY, NONE:");
                     String matchingStrategy = scanner.nextLine();
                     System.out.println("Enter a name or email to search all suitable people:");
-                    String query = scanner.nextLine();
+                    String query = scanner.nextLine().toLowerCase();
                     MatchData result = createData(matchingStrategy, query);
-                    List<String> found = result.search(invertedIndex, people);
+                    Set<String> found = result.search(invertedIndex, people);
                     printSearchResult(found);
                     break;
                 case 2:

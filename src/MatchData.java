@@ -1,6 +1,7 @@
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public interface MatchData {
-    List<String> search(Map<String, List<Integer>> invertedIndex, List<String> people);
+    Set<String> search(Map<String, List<Integer>> invertedIndex, List<String> people);
 }
